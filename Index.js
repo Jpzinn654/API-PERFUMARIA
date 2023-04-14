@@ -7,6 +7,7 @@ const routesCliente = require('./route/rotaCliente')
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 //Torna as rotas executável
 app.use('/', routesPerfumes);

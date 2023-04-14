@@ -57,6 +57,33 @@ router.get('/listarPerfume', (req, res)=>{
         );
 })
 
+router.get('/listarPerfumePK/:cod_perfume', (req, res)=>{
+
+    let {cod_perfume} = req.params;
+
+    //AÇÃO DE SELEÇÃO DE DADOS DO SEQUELIZE
+    modelPerfume.findByPk(cod_perfume)
+    .then(
+        (response)=>{
+            return res.status(200).json({
+                erroStatus:false,
+                mensagemStatus:"PERFUME RECUPERADO COM SUCESSO.",
+                data:response
+            })
+        }
+    )
+    .catch(
+        (error)=>{
+            return res.status(400).json({
+                erroStatus:true,
+                mensagemStatus:"ERRO AO RECUPERAR O PERFUME.",
+                errorObject:error
+            });
+        }
+    )
+
+});
+
 // Rota para listar perfume por nome
 router.get('/listarPerfumeNOME/:nome_perfume', (req, res)=>{
 

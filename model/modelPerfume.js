@@ -15,23 +15,23 @@ const modelPerfume = connection.define(
         },
         nome_perfume:{
             type: Sequelize.STRING(80),
-            allowNull: false
+            
         },
         preco_perfume:{
             type: Sequelize.STRING(10),
-            allowNull: false
+           
         },
         marca_perfume:{
             type: Sequelize.STRING(45),
-            allowNull: false
+            
         },
         modelo_perfume:{
             type: Sequelize.STRING(100),
-            allowNull: false
+            
         }
     }
 )
 
-// modelPerfume.sync({force:true});
+//modelPerfume.sync({force:true});
 
 module.exports = modelPerfume;
